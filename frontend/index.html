@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dog Zone Tracker 🐶</title>
   <link rel="stylesheet" href="style.css" />
 
@@ -13,14 +14,17 @@
   />
 </head>
 <body>
-  <h1>Dog Zone Tracker 🐾</h1>
 
-  <!-- Navigation Buttons -->
-  <nav>
-    <button onclick="showSection('homeScreen')">Home</button>
-    <button onclick="showSection('viewZonesSection')">View Dog Zones</button>
-    <button onclick="showSection('reportSection')">Report an Incident</button>
-  </nav>
+  <!-- Top Navigation -->
+<header class="top-bar">
+  <div class="logo">🐶 Dog Zone Tracker</div>
+  <div class="right-section">
+    <button class="auth-button">Login</button>
+    <button class="auth-button">Signup</button>
+    <img src="https://randomuser.me/api/portraits/women/44.jpg" class="avatar" alt="User Avatar" />
+  </div>
+</header>
+
 
   <!-- Home Screen -->
   <div id="homeScreen">
@@ -28,22 +32,45 @@
       <h2>Welcome!</h2>
       <p>This app helps you identify areas where dog-related incidents have been reported.</p>
       <p>Use the buttons above to view affected zones or report a new incident.</p>
+      <div class="cta-buttons">
+        <button onclick="showSection('viewZonesSection')">View Dog Zones</button>
+        <button onclick="showSection('reportSection')">Report an Incident</button>
+      </div>
+    </div>
+          <!-- Awareness Section -->
+<section class="awareness">
+  <h2>Stay Safe from Dog Bites & Rabies</h2>
+  <div class="awareness-cards">
+    <div class="card">
+      <img src="https://www.shutterstock.com/image-photo/male-german-shepherd-bites-man-600nw-2553316155.jpg" alt="Dog Bite" />
+      <h3>Dog Bite Risk</h3>
+      <p>Stay cautious in marked zones. Avoid provoking unknown or stray dogs.</p>
+    </div>
+    <div class="card">
+      <img src="https://media.istockphoto.com/id/500804277/photo/slimy-dog.jpg?s=612x612&w=0&k=20&c=FzGxH2pWhVoJrhnj0tP0RhCFv43dx0YmdMHgH4M2vB0=" alt="Rabies Info" />
+      <h3>What is Rabies?</h3>
+      <p>Rabies is a fatal viral infection transmitted through bites or scratches from infected animals.</p>
+    </div>
+    <div class="card">
+      <img src="https://www.wikihow.com/images/4/4f/Administer-a-Rabies-Vaccination-Step-14-Version-2.jpg" alt="Vaccination" />
+      <h3>First Aid & Vaccination</h3>
+      <p>Clean the wound, visit the nearest clinic, and get anti-rabies shots within 24 hours.</p>
     </div>
   </div>
-
-<!-- View Dog Zones -->
-<div id="viewZonesSection" class="hidden">
-  <div class="container">
-    <h2>Dog Zone Map</h2>
-    <div id="dogZoneMap" style="height: 500px; width: 100%; margin-bottom: 20px;"></div>
-    <!-- All Reports -->
-  <div class="container">
-    <h2>All Reported Incidents</h2>
-    <div id="reportList"></div>
+</section>
   </div>
-  </div>
-</div>
+  
 
+  <!-- View Dog Zones -->
+  <div id="viewZonesSection" class="hidden">
+    <div class="container">
+      <h2>Dog Zone Map</h2>
+      <div id="dogZoneMap"></div>
+
+      <h2>All Reported Incidents</h2>
+      <div id="reportList"></div>
+    </div>
+  </div>
 
   <!-- Report Section -->
   <div id="reportSection" class="hidden">
@@ -78,14 +105,11 @@
       </form>
 
       <h3>Select Location on Map</h3>
-      <div id="reportMapContainer" style="height: 500px; width: 100%;"></div>
-
+      <div id="reportMapContainer"></div>
     </div>
   </div>
 
-  
-
-  <!-- JavaScript & Leaflet -->
+  <!-- Scripts -->
   <script src="script.js"></script>
   <script
     src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
