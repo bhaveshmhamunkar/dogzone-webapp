@@ -1,38 +1,95 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Dog Zone Reporter</title>
-    <link rel="stylesheet" href="style.css">
-    
-     
+  <meta charset="UTF-8" />
+  <title>Dog Zone Tracker 🐶</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    crossorigin=""
+  />
 </head>
 <body>
-    
-    <h1>Dog Zone Reporter 🐶</h1>
+  <h1>Dog Zone Tracker 🐾</h1>
 
-    <form id="reportForm">
-    <label>Name:</label>
-    <input type="text" name="name" required><br>
+  <!-- Navigation Buttons -->
+  <nav>
+    <button onclick="showSection('homeScreen')">Home</button>
+    <button onclick="showSection('viewZonesSection')">View Dog Zones</button>
+    <button onclick="showSection('reportSection')">Report an Incident</button>
+  </nav>
 
-    <label>Email:</label>
-    <input type="email" name="email" required><br>
+  <!-- Home Screen -->
+  <div id="homeScreen">
+    <div class="container">
+      <h2>Welcome!</h2>
+      <p>This app helps you identify areas where dog-related incidents have been reported.</p>
+      <p>Use the buttons above to view affected zones or report a new incident.</p>
+    </div>
+  </div>
 
-    <label>Location:</label>
-    <input type="text" name="location" required><br>
+<!-- View Dog Zones -->
+<div id="viewZonesSection" class="hidden">
+  <div class="container">
+    <h2>Dog Zone Map</h2>
+    <div id="dogZoneMap" style="height: 500px; width: 100%; margin-bottom: 20px;"></div>
+    <!-- All Reports -->
+  <div class="container">
+    <h2>All Reported Incidents</h2>
+    <div id="reportList"></div>
+  </div>
+  </div>
+</div>
 
-    <label>Description:</label>
-    <textarea name="description" required></textarea><br>
 
-    <label>Date & Time:</label>
-    <input type="datetime-local" name="date_time" required><br>
+  <!-- Report Section -->
+  <div id="reportSection" class="hidden">
+    <div class="container">
+      <h2>Report an Incident</h2>
+      <form id="reportForm">
+        <label>Name:</label>
+        <input type="text" name="name" required />
 
-    <label>Photo:</label>
-    <input type="file" name="photo" accept="image/*"><br>
+        <label>Email:</label>
+        <input type="email" name="email" required />
 
-    <button type="submit">Submit Report</button>
-</form>
+        <label>Location:</label>
+        <input type="text" name="location" required />
 
-<script src="script.js"></script>
-   
+        <label>Description:</label>
+        <textarea name="description" required></textarea>
+
+        <label>Latitude:</label>
+        <input type="text" name="latitude" id="latitude" readonly required />
+
+        <label>Longitude:</label>
+        <input type="text" name="longitude" id="longitude" readonly required />
+
+        <label>Date & Time:</label>
+        <input type="datetime-local" name="date_time" required />
+
+        <label>Photo:</label>
+        <input type="file" name="photo" accept="image/*" />
+
+        <button type="submit">Submit Report</button>
+      </form>
+
+      <h3>Select Location on Map</h3>
+      <div id="reportMapContainer" style="height: 500px; width: 100%;"></div>
+
+    </div>
+  </div>
+
+  
+
+  <!-- JavaScript & Leaflet -->
+  <script src="script.js"></script>
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    crossorigin=""
+  ></script>
 </body>
 </html>
