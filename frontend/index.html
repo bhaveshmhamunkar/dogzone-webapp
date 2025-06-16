@@ -12,6 +12,7 @@
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     crossorigin=""
   />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
 </head>
 <body>
 
@@ -24,6 +25,7 @@
     <img src="https://randomuser.me/api/portraits/women/44.jpg" class="avatar" alt="User Avatar" />
   </div>
 </header>
+
 
 
   <!-- Home Screen -->
@@ -65,9 +67,14 @@
   <div id="viewZonesSection" class="hidden">
     <div class="container">
       <h2>Dog Zone Map</h2>
+      <button id="distanceToNearestBtn">Distance to Nearest Incident</button>
       <div id="dogZoneMap"></div>
+      
+
 
       <h2>All Reported Incidents</h2>
+      <input id="searchBox" placeholder="Search by Location or Name">
+      <button id="searchBtn">Search</button>
       <div id="reportList"></div>
     </div>
   </div>
@@ -105,9 +112,11 @@
       </form>
 
       <h3>Select Location on Map</h3>
+      
       <div id="reportMapContainer"></div>
     </div>
   </div>
+  <script src="https://unpkg.com/leaflet.geometryutil@0.4.0/leaflet.geometryutil.js"></script>
 
   <!-- Scripts -->
   <script src="script.js"></script>
@@ -115,5 +124,8 @@
     src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     crossorigin=""
   ></script>
+  
+<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
 </body>
 </html>

@@ -288,10 +288,29 @@ form button[type="submit"]:hover {
 .card {
   background: #fff;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
   width: 280px;
   padding: 15px;
-  text-align: left;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+   transform: translateY(20px);
+  opacity: 0;
+  animation: fadeUp 0.5s ease forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 20px rgb(0 0 0 / 0.2);
+  cursor: pointer;
 }
 
 .card img {

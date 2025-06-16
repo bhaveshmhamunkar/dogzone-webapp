@@ -1,6 +1,7 @@
-from django.urls import path
-from .views import DogZoneReportListCreateView
+from rest_framework import routers
+from .views import DogZoneReportViewSet
 
-urlpatterns = [
-    path('reports/', DogZoneReportListCreateView.as_view(), name='report'),
-]
+router = routers.DefaultRouter()
+router.register(r'reports', DogZoneReportViewSet)
+
+urlpatterns = router.urls
